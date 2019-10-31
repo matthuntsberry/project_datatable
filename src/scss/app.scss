@@ -1,0 +1,24 @@
+// normalize all browsers
+@import "./base/normalize";
+
+// carbon related imports
+@import "carbon-components/scss/globals/scss/vendor/@carbon/type/scss/font-family";
+@import "carbon-components/scss/globals/scss/vendor/@carbon/layout/scss/breakpoint";
+@import "carbon-components/scss/globals/scss/typography";
+@import "carbon-components/scss/globals/scss/vars";
+
+// Cloud PAL
+//@import '@console/pal/Connected/<pattern name>/styles.scss
+// @import "@console/pal/Components/PageHeader/styles";
+
+// app related imports
+@import "../scss/abstracts/variables";
+@import "../scss/abstracts/mixins";
+@import "../scss/vendors/overrides";
+
+// pages related styles
+@import "../scss/pages/cloudpal-page";
+
+// component related styles
+@import "../scss/components/buttons/buttons";
+@import "../components/PageHeader/page-header";

@@ -1,0 +1,114 @@
+import React from "react";
+import ScrollTable from "../../components/ScrollTable";
+import { Button, Search, Pagination, Link } from "carbon-components-react";
+import { Renew16, SettingsAdjust16, Settings16 } from "@carbon/icons-react";
+import { gql } from "apollo-boost";
+import { Query } from "react-apollo";
+
+import PageHeader from "../../components/PageHeader";
+
+import db from "../../db/db";
+
+const REPO_QUERY = gql`
+  query REPO_QUERY {
+    # Let's use carbon as our organization
+    organization(login: "carbon-design-system") {
+      # We'll grab all the repositories in one go. To load more resources
+      # continuously, see the advanced topics.
+      repositories(first: 75, orderBy: { field: UPDATED_AT, direction: DESC }) {
+        nodes {
+          # url
+          homepageUrl
+          name
+          updatedAt
+          createdAt
+          # description
+          # id
+        }
+      }
+    }
+  }
+`;
+
+const LinkList = ({ url, homepageUrl }) => (
+  <ul style={{ display: "flex" }}>
+    <li>
+      <Link href={url}>GitHub</Link>
+    </li>
+    {homepageUrl && (
+      <li>
+        <span>&nbsp;|&nbsp;</span>
+        <Link href={homepageUrl}>Homepage</Link>
+      </li>
+    )}
+  </ul>
+);
+
+const getRowItems = rows =>
+  rows.map(row => ({
+    key: row.id,
+    name: row.name,
+    createdAt: new Date(row.createdAt).toLocaleDateString(),
+    updatedAt: new Date(row.updatedAt).toLocaleDateString(),
+    stars: Math.floor(Math.random() * 1000),
+    issueCount: Math.floor(Math.random() * 1000),
+    links: <LinkList url={row.url} homepageUrl={row.homepageUrl} />
+  }));
+
+const CloudPalPage = () => {
+  const { headers } = db;
+  return (
+    <div className="bx--grid cloudpal-page">
+      <div className="bx--row cloudpal-page__r1">
+        <div className="bx--col-lg-16">
+          <PageHeader title="Scrollable Table" />
+        </div>
+      </div>
+      <div className="bx--row cloudpal-page__r2">
+        <div className="search__container">
+          <Search light={true} className="search__component" labelText="" />
+        </div>
+        <div className="button__container--actions">
+          <Button className="bx--btn bx--btn--ghost">
+            <SettingsAdjust16 />
+          </Button>
+          <Button className="bx--btn bx--btn--ghost button--renew">
+            <Renew16 />
+          </Button>
+          <Button className="bx--btn bx--btn--ghost">
+            <Settings16 />
+          </Button>
+        </div>
+      </div>
+
+      <div className="bx--row cloudpal-page__r3">
+        <div className="bx--col-lg-16">
+          <Query query={REPO_QUERY}>
+            {({ loading, error, data }) => {
+              // Wait for the request to complete
+              if (loading) return "Loading...";
+
+              // Something went wrong with the data fetching
+              if (error) return `Error! ${error.message}`;
+
+              // If we're here, we've got our data!
+              // If we're here, we've got our data!
+              const { repositories } = data.organization;
+              const rows = getRowItems(repositories.nodes);
+
+              return (
+                <>
+                  <ScrollTable headers={headers} rows={rows} scrollable />
+                </>
+              );
+            }}
+          </Query>
+
+          {/* <ScrollTable headers={headers} rows={rows} scrollable /> */}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CloudPalPage;

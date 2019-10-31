@@ -1,0 +1,25 @@
+.button--primary {
+  display: none;
+
+  @include medium {
+    display: block;
+  }
+}
+
+.button__container--secondary {
+  display: flex;
+  align-self: center;
+  justify-content: flex-end;
+
+  @include medium {
+    display: none;
+  }
+}
+
+.button__container--actions {
+  display: grid;
+  grid-template-columns: auto auto auto 1fr;
+  align-self: center;
+  justify-self: flex-end;
+  background-color: #fff;
+}

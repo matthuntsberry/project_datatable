@@ -1,0 +1,18 @@
+.cloudpal-page {
+  background-color: #f4f4f4;
+}
+
+.cloudpal-page__r1 {
+  display: block;
+}
+
+.cloudpal-page__r2 {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 0;
+  background-color: #fff;
+
+  @include medium {
+    grid-template-columns: 1fr 1fr;
+  }
+}
