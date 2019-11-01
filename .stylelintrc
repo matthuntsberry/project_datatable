@@ -1,0 +1,54 @@
+{
+ "extends": [
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-property-sort-order-smacss"
+  ],
+ "rules": {
+   "string-quotes": "double",
+    "selector-max-type": 0,
+    "property-no-vendor-prefix": true,
+    "max-nesting-depth": 4,
+    "selector-max-compound-selectors": 4,
+    "color-named": "never",
+    "number-leading-zero": null,
+    "selector-class-pattern": ["^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$", {
+      message: "should match Harry Roberts'' style BEM block[__element][--modifier]"
+    }],
+    "indentation": 2,
+    # If you want to be consistent about putting functions and mixins in a block
+    # "order/order": [
+    #   [
+    #     "custom-properties",
+    #     "dollar-variables",
+    #     {
+    #       "type": "at-rule",
+    #       "name": "function"
+    #     },
+    #     {
+    #       "type": "at-rule",
+    #       "name": "extend"
+    #     },
+    #     {
+    #       "type": "at-rule",
+    #       "name": "mixin",
+    #       "hasBlock": true
+    #     },
+    #     {
+    #       "type": "at-rule",
+    #       "name": "include",
+    #       "hasBlock": false
+    #     },
+    #     "declarations",
+    #     {
+    #       "type": "at-rule",
+    #       "name": "include",
+    #       "hasBlock": true
+    #     },
+    #     "rules"
+    #   ]
+    # ],
+    "order/properties-alphabetical-order": null,
+    #  The following
+    "declaration-block-semicolon-newline-after": "always-multi-line",
+  },
+}

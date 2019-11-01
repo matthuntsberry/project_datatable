@@ -17,8 +17,10 @@
 @import "../scss/vendors/overrides";
 
 // pages related styles
-@import "../scss/pages/cloudpal-page";
+@import "./pages/cloudpal-page";
+@import "./pages/app";
 
 // component related styles
 @import "../scss/components/buttons/buttons";
 @import "../components/PageHeader/page-header";
+@import "../components/Sidebar/sidebar";

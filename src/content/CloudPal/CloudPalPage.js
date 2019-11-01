@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ScrollTable from "../../components/ScrollTable";
 import { Button, Search, Pagination, Link } from "carbon-components-react";
 import { Renew16, SettingsAdjust16, Settings16 } from "@carbon/icons-react";
@@ -57,6 +57,12 @@ const getRowItems = rows =>
 
 const CloudPalPage = () => {
   const { headers } = db;
+
+  const [totalItems, setTotalItems] = useState(0);
+  const [firstRowIndex, setFirstRowIndex] = useState(0);
+  const [currentPageSize, setCurrentPageSize] = useState(10);
+  console.log(totalItems);
+
   return (
     <div className="bx--grid cloudpal-page">
       <div className="bx--row cloudpal-page__r1">
@@ -85,26 +91,43 @@ const CloudPalPage = () => {
         <div className="bx--col-lg-16">
           <Query query={REPO_QUERY}>
             {({ loading, error, data }) => {
-              // Wait for the request to complete
               if (loading) return "Loading...";
 
-              // Something went wrong with the data fetching
               if (error) return `Error! ${error.message}`;
 
-              // If we're here, we've got our data!
-              // If we're here, we've got our data!
-              const { repositories } = data.organization;
-              const rows = getRowItems(repositories.nodes);
-
+              let rows = [];
+              if (data) {
+                setTotalItems(50);
+                rows = getRowItems(data.organization.repositories.nodes);
+              }
               return (
                 <>
-                  <ScrollTable headers={headers} rows={rows} scrollable />
+                  <ScrollTable
+                    headers={headers}
+                    rows={rows.slice(
+                      firstRowIndex,
+                      firstRowIndex + currentPageSize
+                    )}
+                    scrollable
+                  />
+                  <Pagination
+                    totalItems={totalItems}
+                    backwardText="Previous page"
+                    forwardText="Next page"
+                    pageSize={currentPageSize}
+                    pageSizes={[5, 10, 15, 25]}
+                    itemsPerPageText="Items per page"
+                    onChange={({ page, pageSize }) => {
+                      if (pageSize !== currentPageSize) {
+                        setCurrentPageSize(pageSize);
+                      }
+                      setFirstRowIndex(pageSize * (page - 1));
+                    }}
+                  />
                 </>
               );
             }}
           </Query>
-
-          {/* <ScrollTable headers={headers} rows={rows} scrollable /> */}
         </div>
       </div>
     </div>

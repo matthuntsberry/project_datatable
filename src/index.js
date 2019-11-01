@@ -14,8 +14,6 @@ import "core-js/modules/es7.object.values";
 import "./scss/vendors/carbon.scss";
 import App from "./components/App";
 
-console.log(process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN);
-
 const client = new ApolloClient({
   uri: "https://api.github.com/graphql",
   headers: {
