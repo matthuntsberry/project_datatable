@@ -14,7 +14,7 @@ const ScrollTable = ({ rows, headers, scrollable }) => {
 
   const renderRow = (row, key) => {
     return (
-      <tr key={key}>
+      <tr className="table__row" key={key}>
         <Cell content={row} />
       </tr>
     );
@@ -24,7 +24,7 @@ const ScrollTable = ({ rows, headers, scrollable }) => {
 
   return (
     <div className={scrollable && "scrollable"}>
-      <div className="bx--data-table-container">
+      <div className="bx--data-table-container data-table">
         <table className="bx--data-table bx--data-table--no-border">
           <thead>{theadMarkup}</thead>
           <tbody>{tbodyMarkup}</tbody>
