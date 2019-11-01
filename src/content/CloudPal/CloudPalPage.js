@@ -67,7 +67,7 @@ const CloudPalPage = () => {
     <div className="bx--grid cloudpal-page">
       <div className="bx--row cloudpal-page__r1">
         <div className="bx--col-lg-16">
-          <PageHeader title="Scrollable Table" />
+          <PageHeader title="Details" />
         </div>
       </div>
       <div className="bx--row cloudpal-page__r2">

@@ -21,7 +21,7 @@ const TutorialHeader = () => (
       Cloud
     </HeaderName>
     <HeaderNavigation aria-label="Carbon Tutorial">
-      <HeaderMenuItem href="/">Scroll Table</HeaderMenuItem>
+      <HeaderMenuItem href="/">Details</HeaderMenuItem>
     </HeaderNavigation>
     <HeaderGlobalBar>
       <HeaderGlobalAction aria-label="Notifications">
