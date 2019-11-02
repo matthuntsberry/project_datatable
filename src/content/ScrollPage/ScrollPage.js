@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import ScrollTable from "../../components/ScrollTable";
+import Table from "../../components/Tables";
 import { Button, Search, Pagination, Link } from "carbon-components-react";
 import { Renew16, SettingsAdjust16, Settings16 } from "@carbon/icons-react";
 import { gql } from "apollo-boost";
 import { Query } from "react-apollo";
-
 import PageHeader from "../../components/PageHeader";
 
 import db from "../../db/db";
@@ -17,13 +16,10 @@ const REPO_QUERY = gql`
       # continuously, see the advanced topics.
       repositories(first: 75, orderBy: { field: UPDATED_AT, direction: DESC }) {
         nodes {
-          # url
           homepageUrl
           name
           updatedAt
           createdAt
-          # description
-          # id
         }
       }
     }
@@ -55,19 +51,18 @@ const getRowItems = rows =>
     links: <LinkList url={row.url} homepageUrl={row.homepageUrl} />
   }));
 
-const CloudPalPage = () => {
+const ScrollPage = () => {
   const { headers } = db;
 
   const [totalItems, setTotalItems] = useState(0);
   const [firstRowIndex, setFirstRowIndex] = useState(0);
   const [currentPageSize, setCurrentPageSize] = useState(10);
-  console.log(totalItems);
 
   return (
-    <div className="bx--grid cloudpal-page">
+    <div className="bx--grid bx--grid--full-width cloudpal-page">
       <div className="bx--row cloudpal-page__r1">
         <div className="bx--col-lg-16">
-          <PageHeader title="Details" />
+          <PageHeader title="Scroll" />
         </div>
       </div>
       <div className="bx--row cloudpal-page__r2">
@@ -100,9 +95,10 @@ const CloudPalPage = () => {
                 setTotalItems(50);
                 rows = getRowItems(data.organization.repositories.nodes);
               }
+
               return (
                 <>
-                  <ScrollTable
+                  <Table
                     headers={headers}
                     rows={rows.slice(
                       firstRowIndex,
@@ -134,4 +130,4 @@ const CloudPalPage = () => {
   );
 };
 
-export default CloudPalPage;
+export default ScrollPage;
