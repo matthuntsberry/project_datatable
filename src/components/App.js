@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { Content } from "carbon-components-react/lib/components/UIShell";
 import Loadable from "react-loadable";
 import GlobalHeader from "./GlobalHeader";
-// import Sidebar from "./Sidebar";
+import Sidebar from "./Sidebar";
 import "../scss/main.scss";
 
 function loading() {
@@ -29,8 +29,8 @@ function App() {
   return (
     <div className="app__container">
       <GlobalHeader />
-      {/* <Sidebar /> */}
-      <Content>
+      <Sidebar />
+      <Content className="content">
         <Switch>
           <Route exact path="/" component={LandingPageComponent} />
           <Route path="/scroll" component={ScrollPageComponent} />

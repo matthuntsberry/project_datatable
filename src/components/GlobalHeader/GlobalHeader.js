@@ -14,8 +14,8 @@ import UserAvatar20 from "@carbon/icons-react/lib/user--avatar/20";
 import AppSwitcher20 from "@carbon/icons-react/lib/app-switcher/20";
 import Search20 from "@carbon/icons-react/lib/search/20";
 
-const TutorialHeader = () => (
-  <Header aria-label="Carbon Tutorial">
+const GlobalHeader = () => (
+  <Header aria-label="IBM Cloud" className="global-header">
     <SkipToContent />
     <HeaderName href="/" prefix="IBM">
       Cloud
@@ -42,4 +42,4 @@ const TutorialHeader = () => (
   </Header>
 );
 
-export default TutorialHeader;
+export default GlobalHeader;
