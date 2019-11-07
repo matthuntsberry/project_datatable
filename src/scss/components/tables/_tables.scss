@@ -3,13 +3,13 @@
 }
 
 .scrollable {
-  overflow-x: scroll;
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .scrollable--sticky {
   padding-left: 200px;
-  overflow-x: scroll;
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
