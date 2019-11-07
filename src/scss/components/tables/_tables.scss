@@ -10,6 +10,7 @@
 .scrollable--sticky {
   padding-left: 200px;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .data-table .sticky:nth-of-type(1) {
