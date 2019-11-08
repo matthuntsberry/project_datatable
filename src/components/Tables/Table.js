@@ -17,7 +17,7 @@ const Table = ({ rows, headers, scrollable, sticky }) => {
   const theadMarkup = (
     // passing header index to keep track of first column
     // for position: sticky
-    <tr role="row" className="table-row__header">
+    <tr role="row" className="table-col__header">
       {headers.map(({ header }, index) => renderHeadingRow(header, index))}
     </tr>
   );
@@ -38,16 +38,18 @@ const Table = ({ rows, headers, scrollable, sticky }) => {
   });
 
   return (
-    <div className="table__container">
-      <div className={tableStyles}>
-        <table
-          role="table"
-          summary="A list of resources listed on your ibm cloud account"
-          className="bx--data-table bx--data-table--no-border data-table"
-        >
-          <thead>{theadMarkup}</thead>
-          <tbody>{tbodyMarkup}</tbody>
-        </table>
+    <div className="component__container--table">
+      <div className="table__container">
+        <div className={tableStyles}>
+          <table
+            role="table"
+            summary="A list of resources listed on your ibm cloud account"
+            className="bx--data-table bx--data-table--no-border"
+          >
+            <thead>{theadMarkup}</thead>
+            <tbody>{tbodyMarkup}</tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

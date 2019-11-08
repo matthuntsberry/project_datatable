@@ -3,7 +3,7 @@ import { Button } from "carbon-components-react";
 
 const PageHeader = ({ title }) => {
   return (
-    <div className="page-header__container">
+    <div className="component__container--page-header">
       <h1 className="page-header">{title}</h1>
       <Button className="bx--btn bx--btn--primary" type="button">
         Create
@@ -11,7 +11,6 @@ const PageHeader = ({ title }) => {
           role="img"
           focusable="false"
           preserveAspectRatio="xMidYMid meet"
-          // style="will-change: transform;"
           xmlns="http://www.w3.org/2000/svg"
           className="bx--btn__icon"
           width="16"
