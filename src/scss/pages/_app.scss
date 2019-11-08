@@ -1,4 +1,5 @@
-.app__container {
+.component__container--app {
+  height: 100vh;
   display: grid;
   grid-template-areas:
     "header header"

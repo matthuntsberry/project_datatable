@@ -17,7 +17,7 @@ const DetailsPageComponent = Loadable({
 
 function App() {
   return (
-    <div className="app__container">
+    <div className="component__container--app">
       <GlobalHeader />
       <Sidebar />
       <Content className="content">

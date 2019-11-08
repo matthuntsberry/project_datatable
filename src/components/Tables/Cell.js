@@ -5,13 +5,17 @@ const Cell = ({ content, header, sticky, headerIndex }) => {
     <>
       {/* If first column in data table give it sticky classes */}
       {headerIndex === 0 ? (
-        <th role="columnheader" className={sticky && "sticky"} scope="col">
+        <th
+          role="columnheader"
+          className={sticky && "col-header--sticky"}
+          scope="col"
+        >
           <span role="heading" className="bx--table-header-label">
             {content}
           </span>
         </th>
       ) : (
-        <th role="columnheader" className="cell" scope="col">
+        <th role="columnheader" scope="col">
           <span role="heading" className="bx--table-header-label">
             {content}
           </span>
@@ -25,11 +29,15 @@ const Cell = ({ content, header, sticky, headerIndex }) => {
         <>
           {/* If first column in data table give it these classes */}
           {index === 0 ? (
-            <th role="rowheader" className={sticky && "sticky"} scope="row">
+            <th
+              role="rowheader"
+              className={sticky && "table-cell row-header--sticky"}
+              scope="row"
+            >
               {value}
             </th>
           ) : (
-            <td role="cell" className="cell" key={index}>
+            <td role="cell" className="table-cell" key={index}>
               {value}
             </td>
           )}

@@ -4,11 +4,9 @@ import { Renew16, SettingsAdjust16, Settings16 } from "@carbon/icons-react";
 
 export const TableToolBar = ({ handleToggle, toggle }) => {
   return (
-    <div className="toolbar__container">
-      <div className="search__container">
-        <Search light={true} className="search__component" labelText="" />
-      </div>
-      <div className="button__container--actions">
+    <div className="component__container--table-toolbar">
+      <Search light={true} labelText="Search Details" />
+      <div>
         <Button
           className="bx--btn bx--btn--ghost"
           onClick={() => {
