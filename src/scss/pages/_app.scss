@@ -1,28 +1,21 @@
 .app__container {
   display: grid;
   grid-template-areas:
-    "header"
-    "content";
-  grid-template-columns: 1fr;
-
+    "header header"
+    "sidebar content";
+  grid-template-columns: 48px 1fr;
   background-color: #f4f4f4;
 
-  @include medium {
-    grid-template-areas:
-      "header header"
-      "sidebar content";
-    grid-template-columns: 48px 1fr;
-  }
-
   @include large {
-    grid-template-areas:
-      "header header"
-      "sidebar content";
     grid-template-columns: 256px 1fr;
   }
 }
 
 .content {
   grid-area: content;
-  max-width: 100vw;
+  width: calc(100vw - 48px);
+
+  @include large {
+    max-width: calc(100vw - 256px);
+  }
 }

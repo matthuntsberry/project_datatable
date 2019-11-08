@@ -1,0 +1,10 @@
+.toolbar__container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 0;
+  background-color: #fff;
+
+  @include medium {
+    grid-template-columns: 1fr auto;
+  }
+}

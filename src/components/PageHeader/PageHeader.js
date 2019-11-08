@@ -8,6 +8,7 @@ const PageHeader = ({ title }) => {
       <Button className="bx--btn bx--btn--primary" type="button">
         Create
         <svg
+          role="img"
           focusable="false"
           preserveAspectRatio="xMidYMid meet"
           // style="will-change: transform;"

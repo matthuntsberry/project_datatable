@@ -1,13 +1,9 @@
 .sidebar {
-  display: none;
   grid-area: sidebar;
+  width: 48px;
   height: 100vh;
   background-color: #171717;
 
-  @include medium {
-    display: block;
-    width: 48px;
-  }
   @include large {
     width: 256px;
   }

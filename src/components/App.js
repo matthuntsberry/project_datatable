@@ -10,18 +10,8 @@ function loading() {
   return <h3>Loading....</h3>;
 }
 
-const LandingPageComponent = Loadable({
-  loader: () => import("../content/LandingPage"),
-  loading
-});
-
-const ScrollPageComponent = Loadable({
-  loader: () => import("../content/ScrollPage"),
-  loading
-});
-
-const StickyPageComponent = Loadable({
-  loader: () => import("../content/StickyPage"),
+const DetailsPageComponent = Loadable({
+  loader: () => import("../content/DetailsPage"),
   loading
 });
 
@@ -32,9 +22,7 @@ function App() {
       <Sidebar />
       <Content className="content">
         <Switch>
-          <Route exact path="/" component={LandingPageComponent} />
-          <Route path="/scroll" component={ScrollPageComponent} />
-          <Route path="/sticky" component={StickyPageComponent} />
+          <Route exact path="/" component={DetailsPageComponent} />
         </Switch>
       </Content>
     </div>
