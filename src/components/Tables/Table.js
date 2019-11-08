@@ -3,19 +3,28 @@ import Cell from "./Cell";
 import classNames from "classnames";
 
 const Table = ({ rows, headers, scrollable, sticky }) => {
-  const renderHeadingRow = (header, key) => {
-    return <Cell content={header} header={true} sticky={sticky} key={key} />;
+  const renderHeadingRow = (header, headerIndex) => {
+    return (
+      <Cell
+        content={header}
+        header={true}
+        sticky={sticky}
+        headerIndex={headerIndex}
+      />
+    );
   };
 
   const theadMarkup = (
-    <tr className="table__header-row">
-      {headers.map(({ header }, i) => renderHeadingRow(header, i))}
+    // passing header index to keep track of first column
+    // for position: sticky
+    <tr role="row" className="table-row__header">
+      {headers.map(({ header }, index) => renderHeadingRow(header, index))}
     </tr>
   );
 
   const renderRow = (row, key) => {
     return (
-      <tr className="table__row" key={key}>
+      <tr role="row" className="table-row" key={key}>
         <Cell content={row} sticky={sticky} />
       </tr>
     );
@@ -24,19 +33,21 @@ const Table = ({ rows, headers, scrollable, sticky }) => {
   const tbodyMarkup = rows.map((row, i) => renderRow(row, i));
 
   const tableStyles = classNames({
-    scrollable: scrollable,
-    "scrollable--sticky": scrollable && sticky
+    "table--scroll-x": scrollable,
+    "table--sticky-scroll": scrollable && sticky
   });
 
   return (
-    <div className="table__wrapper">
+    <div className="table__container">
       <div className={tableStyles}>
-        <div className="bx--data-table-container data-table">
-          <table className="bx--data-table bx--data-table--no-border">
-            <thead>{theadMarkup}</thead>
-            <tbody>{tbodyMarkup}</tbody>
-          </table>
-        </div>
+        <table
+          role="table"
+          summary="A list of resources listed on your ibm cloud account"
+          className="bx--data-table bx--data-table--no-border data-table"
+        >
+          <thead>{theadMarkup}</thead>
+          <tbody>{tbodyMarkup}</tbody>
+        </table>
       </div>
     </div>
   );

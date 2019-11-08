@@ -20,10 +20,8 @@ const GlobalHeader = () => (
     <HeaderName href="/" prefix="IBM">
       Cloud
     </HeaderName>
-    <HeaderNavigation aria-label="Carbon Tutorial">
-      <HeaderMenuItem href="/">Basic</HeaderMenuItem>
-      <HeaderMenuItem href="/scroll">Scroll</HeaderMenuItem>
-      <HeaderMenuItem href="/sticky">Sticky</HeaderMenuItem>
+    <HeaderNavigation aria-label="Details Page">
+      <HeaderMenuItem href="/">Details</HeaderMenuItem>
     </HeaderNavigation>
     <HeaderGlobalBar>
       <HeaderGlobalAction aria-label="Notifications">

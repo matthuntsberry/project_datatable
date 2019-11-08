@@ -1,0 +1,9 @@
+.details-page {
+  height: 100%;
+  padding: 0 16px;
+  background-color: #f4f4f4;
+
+  @include medium {
+    padding: 0 32px;
+  }
+}

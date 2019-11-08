@@ -1,0 +1,43 @@
+.table__container {
+  display: flex;
+  position: relative;
+  height: 300px;
+}
+
+.table--scroll-x,
+.table--sticky-scroll {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.table-row__header {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+}
+
+.cell {
+  white-space: nowrap;
+}
+
+// This is to fix a weird bug in FF to
+// show a bottom border for the table th
+.row__header {
+  @include medium {
+    transform: scale(0.9);
+  }
+}
+
+.cell:last-child {
+  width: 50px;
+  padding: 0;
+  justify-items: end;
+}
+
+th.sticky:first-child {
+  @include medium {
+    position: sticky;
+    z-index: 2;
+    left: 0;
+  }
+}
