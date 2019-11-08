@@ -20,14 +20,6 @@
   top: 0;
 }
 
-// This is to fix a weird bug in FF to
-// show a bottom border for the table th
-.row__header {
-  @include medium {
-    transform: scale(0.9);
-  }
-}
-
 .table-cell {
   white-space: nowrap;
 }
@@ -38,10 +30,25 @@
   justify-items: end;
 }
 
-th.col-header--sticky:first-child {
+th.col-header--sticky:first-child,
+th.row-header--sticky:first-child {
+  // use scale to fix weird bug in FF to show
+  // bottom border for the for sticky cols
+  transform: scale(0.989);
+  background-color: #fff;
+  box-shadow: 0;
   @include medium {
     position: sticky;
-    z-index: 2;
+    z-index: 3;
     left: 0;
+    box-shadow: 2px 0 1px -2px #dcdcdc;
   }
+}
+
+th.col-header--sticky:first-child {
+  background-color: #dcdcdc;
+}
+
+td.table-cell {
+  background-color: #fff;
 }

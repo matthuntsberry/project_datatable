@@ -15,7 +15,7 @@ const Cell = ({ content, header, sticky, headerIndex }) => {
           </span>
         </th>
       ) : (
-        <th role="columnheader" className="table-cell" scope="col">
+        <th role="columnheader" scope="col">
           <span role="heading" className="bx--table-header-label">
             {content}
           </span>
@@ -31,7 +31,7 @@ const Cell = ({ content, header, sticky, headerIndex }) => {
           {index === 0 ? (
             <th
               role="rowheader"
-              className={sticky && "col-header--sticky"}
+              className={sticky && "table-cell row-header--sticky"}
               scope="row"
             >
               {value}

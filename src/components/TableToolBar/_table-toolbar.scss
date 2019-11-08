@@ -1,10 +1,6 @@
-.toolbar__container {
+.component__container--table-toolbar {
   display: grid;
   grid-template-columns: 1fr auto;
   margin: 0;
   background-color: #fff;
-
-  @include medium {
-    grid-template-columns: 1fr auto;
-  }
 }
