@@ -6,7 +6,7 @@ import TableToolBar from "../../components/TableToolBar";
 import PageHeader from "../../components/PageHeader";
 import db from "../../db/db";
 
-const FilterPage = () => {
+const DetailsPage = () => {
   let { headers, rows } = db;
 
   const [totalItems] = useState(20);
@@ -50,4 +50,4 @@ const FilterPage = () => {
   );
 };
 
-export default FilterPage;
+export default DetailsPage;
