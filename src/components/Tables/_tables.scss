@@ -1,11 +1,15 @@
+.table-component__container {
+  padding-bottom: 32px;
+}
+
 .table__container {
   display: flex;
   position: relative;
-  height: 290px;
+  // height: 290px;
 
-  @include medium {
-    height: 390px;
-  }
+  // @include medium {
+  //   height: 390px;
+  // }
 }
 
 .table--scroll-x,

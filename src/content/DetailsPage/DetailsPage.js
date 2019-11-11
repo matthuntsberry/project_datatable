@@ -31,7 +31,7 @@ const FilterPage = () => {
         />
 
         <Pagination
-          className="pagination--sticky"
+          // className="pagination--sticky"
           totalItems={totalItems}
           backwardText="Previous page"
           forwardText="Next page"
