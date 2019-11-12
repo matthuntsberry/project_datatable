@@ -10,3 +10,8 @@
 .bx--pagination {
   background-color: #fff;
 }
+
+.bx--data-table {
+  border-spacing: 0;
+  border-collapse: separate; /* Don't collapse */
+}

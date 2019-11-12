@@ -60,6 +60,7 @@ th.row-header--sticky:first-child {
   // use scale to fix weird bug in FF to show
   // bottom border for the for sticky cols
   transform: scale(0.989);
+  box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 td.table-cell {
