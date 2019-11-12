@@ -5,11 +5,6 @@
 .table__container {
   display: flex;
   position: relative;
-  // height: 290px;
-
-  // @include medium {
-  //   height: 390px;
-  // }
 }
 
 .table--scroll-x,
@@ -38,29 +33,22 @@
 th.col-header--sticky:first-child,
 th.row-header--sticky:first-child {
   background-color: #fff;
-  box-shadow: 2px 0 1px -2px #dcdcdc;
+  box-shadow: 0;
 
   @include medium {
     position: sticky;
     z-index: 2;
     left: 0;
+    box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.1);
   }
 
   @include large {
-    transform: scale(1);
-    box-shadow: none;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
 }
 
 th.col-header--sticky:first-child {
   background-color: #dcdcdc;
-}
-
-th.row-header--sticky:first-child {
-  // use scale to fix weird bug in FF to show
-  // bottom border for the for sticky cols
-  transform: scale(0.989);
-  box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 td.table-cell {
