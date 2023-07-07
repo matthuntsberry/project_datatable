@@ -29,7 +29,7 @@
     "node-sass": "4.12.0",
     "prettier": "1.18.2",
     "react-loadable": "^5.5.0",
-    "stylelint": "11.0.0",
+    "stylelint": "15.10.1",
     "stylelint-config-property-sort-order-smacss": "5.0.0",
     "stylelint-config-sass-guidelines": "6.0.0"
   },
